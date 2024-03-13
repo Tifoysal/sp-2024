@@ -8,6 +8,11 @@ class HomeController extends Controller
 {
     public function showHomePage()
     {
-        return view('backend.master');
+        return view('backend.pages.dashboard');
+    }
+
+    public function orderList()
+    {
+        return view('backend.pages.order-list');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[HomeController::class,'showHomePage']);
+
+Route::get('/order/list',[HomeController::class,'orderList'])->name('order.list');
+
+Route::get('/product/list',[ProductController::class,'list'])->name('product.list');
+
+Route::get('/product/create/form',[ProductController::class,'createForm'])->name('product.create.form');
+
+Route::get('/category/list',[CategoryController::class,'list'])->name('category.list');
+
+Route::get('/category/form',[CategoryController::class,'categoryForm'])->name('category.form');
+
+Route::post('/category/store',[CategoryController::class,'categoryStore'])->name('category.store');
