@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function list()
     {
 
-        $categories=Category::all(); //select * from categories;
+        $categories=Category::paginate(5); //select * from categories;
         // dd($box);
 
 

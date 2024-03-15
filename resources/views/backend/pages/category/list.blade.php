@@ -42,6 +42,7 @@
 
 </table>
 
+{{ $categories->links() }}
 
 
 
