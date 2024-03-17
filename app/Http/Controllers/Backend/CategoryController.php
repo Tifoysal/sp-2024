@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -25,13 +26,27 @@ class CategoryController extends Controller
 
     public function categoryStore(Request $request)
     {
-        
+
+        $checkValidation=Validator::make($request->all(),[
+            'cat_name'=>'required',
+        ]);
+
+        if($checkValidation->fails())
+        {
+           
+            // notify()->error("something went wrong.");
+            notify()->error($checkValidation->getMessageBag());
+            return redirect()->back();
+        }
+       
 
         Category::create([
-            //banm pase column name => dan pase value
+            //bam pase column name => dan pase value
             'name'=>$request->cat_name,
             'description'=>$request->description
         ]);
+
+        notify()->success('Category created successfully.');
 
     return redirect()->route('category.list');
     }
