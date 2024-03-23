@@ -20,11 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/login', [UserController::class, 'login'])->name('admin.login');
+    Route::post('/do-login', [UserController::class, 'doLogin'])->name('admin.do.login');
 
     
 
     Route::group(['middleware'=>'auth'],function(){
-        Route::get('/', [HomeController::class, 'showHomePage']);
+        Route::get('/', [HomeController::class, 'showHomePage'])->name('dashboard');
 
         Route::get('/order/list', [HomeController::class, 'orderList'])->name('order.list');
     

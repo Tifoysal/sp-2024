@@ -120,7 +120,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -267,6 +267,8 @@ input[type=text]:placeholder {
 }
 
 </style>
+@notifyCss
+
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -277,10 +279,11 @@ input[type=text]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form action="{{route('admin.do.login')}}" method="post">
+      @csrf
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Enter your email">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter password">
+     <button type="submit" class="fadeIn fourth">Login</button>
     </form>
 
     <!-- Remind Passowrd -->
@@ -290,3 +293,7 @@ input[type=text]:placeholder {
 
   </div>
 </div>
+
+@include('notify::components.notify')
+
+@notifyJs
