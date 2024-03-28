@@ -12,11 +12,11 @@ class CategoryController extends Controller
     public function list()
     {
 
-        $categories=Category::paginate(5); //select * from categories;
+        $categories = Category::paginate(5); //select * from categories;
         // dd($box);
 
 
-      return view('backend.pages.category.list',compact('categories'));
+        return view('backend.pages.category.list', compact('categories'));
     }
 
     public function categoryForm()
@@ -27,29 +27,33 @@ class CategoryController extends Controller
     public function categoryStore(Request $request)
     {
 
-        $checkValidation=Validator::make($request->all(),[
-            'cat_name'=>'required',
+        $checkValidation = Validator::make($request->all(), [
+            'cat_name' => 'required',
         ]);
 
-        if($checkValidation->fails())
-        {
-           
+        if ($checkValidation->fails()) {
             // notify()->error("something went wrong.");
             notify()->error($checkValidation->getMessageBag());
             return redirect()->back();
         }
-       
+
+        $cat_image = '';
+        if ($image = $request->hasFile('image')) {
+            $image = $request->file('image');
+            // dd($image);
+            $cat_image = 'IMG' . '-' . date('Ymdhsi') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('/category',$cat_image );
+        }
 
         Category::create([
             //bam pase column name => dan pase value
-            'name'=>$request->cat_name,
-            'description'=>$request->description
+            'name' => $request->cat_name,
+            'description' => $request->description,
+            'image'=>$cat_image,
         ]);
 
         notify()->success('Category created successfully.');
 
-    return redirect()->route('category.list');
+        return redirect()->route('category.list');
     }
-
-
 }
