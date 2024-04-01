@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    
+
     public function list()
     {
         return view('backend.pages.product.list');
@@ -17,6 +17,12 @@ class ProductController extends Controller
     public function  createForm()
     {
         return view('backend.pages.product.create');
+    }
+
+
+    // for web Page
+    function allProducts(){
+        return view('frontend.pages.products.products');
     }
 
 }

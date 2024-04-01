@@ -14,7 +14,7 @@
                 <th scope="col">Category Image</th>
                 <th scope="col">Category Name</th>
                 <th scope="col">Category Status</th>
-                <th scope="col">Description</th>
+                {{-- <th scope="col">Description</th> --}}
                 <th>Action</th>
             </tr>
         </thead>
@@ -29,9 +29,9 @@
                             alt="" srcset=""></td>
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->status }}</td>
-                    <td>{{ $data->description }}</td>
+                    {{-- <td>{{ $data->description }}</td> --}}
                     <td>
-                        <a class="btn btn-info" href="">Edit</a>
+                        <a class="btn btn-info" href="{{ route('category.edit', $data->id) }}">Edit</a>
                         <a class="btn btn-success" href="">View</a>
                         <a class="btn btn-danger" href="">Delete</a>
                     </td>

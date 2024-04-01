@@ -42,18 +42,44 @@ class CategoryController extends Controller
             $image = $request->file('image');
             // dd($image);
             $cat_image = 'IMG' . '-' . date('Ymdhsi') . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('/category',$cat_image );
+            $image->storeAs('/category', $cat_image);
         }
 
         Category::create([
             //bam pase column name => dan pase value
             'name' => $request->cat_name,
             'description' => $request->description,
-            'image'=>$cat_image,
+            'image' => $cat_image,
         ]);
 
         notify()->success('Category created successfully.');
 
         return redirect()->route('category.list');
+    }
+
+    public function categoryEdit($id)
+    {
+
+        $category = Category::find($id);
+
+        return view('backend.pages.category.edit', compact('category'));
+    }
+
+    public function categoryUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'cat_name' => 'required',
+        ]);
+
+        // old data
+        $category = Category::find($id);
+
+        $category->update([
+            'name' => $request->cat_name,
+            'description' => $request->description,
+            'status' => $request->status
+        ]);
+        notify()->success('Category updated successfully');
+        return to_route('category.list');
     }
 }
