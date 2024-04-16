@@ -26,7 +26,8 @@ class CategoryController extends Controller
 
     public function categoryStore(Request $request)
     {
-
+      
+       
         $checkValidation=Validator::make($request->all(),[
             'cat_name'=>'required',
         ]);
@@ -38,12 +39,27 @@ class CategoryController extends Controller
             notify()->error($checkValidation->getMessageBag());
             return redirect()->back();
         }
+        //2.2: make a path for this image
+        $fileName=null;
+        if($request->hasFile('category_image'))
+        {
+            //generate name i.e: 20240416170933.jpeg
+            $fileName=date('YmdHis').'.'.$request->file('category_image')->getClientOriginalExtension();
+           
+             //2.3: store it into public folder
+             $request->file('category_image')->storeAs('/category',$fileName);
+             //public/uploads/category/20244394343.png
+
+        }
+
+       
        
 
         Category::create([
             //bam pase column name => dan pase value
             'name'=>$request->cat_name,
-            'description'=>$request->description
+            'description'=>$request->description,
+            'image'=>$fileName
         ]);
 
         notify()->success('Category created successfully.');

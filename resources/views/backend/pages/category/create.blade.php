@@ -5,7 +5,7 @@
 <h1>Create new Category</h1>
 
 
-<form action="{{route('category.store')}}" method="post">
+<form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
 
 @csrf
   <div class="form-group">
@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <label for="">Upload Image</label>
-    <input name="image" type="file" class="form-control" id="" placeholder="Enter product quantity">
+    <input name="category_image" type="file" class="form-control" id="" placeholder="Enter product quantity">
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
