@@ -12,11 +12,11 @@ class CategoryController extends Controller
     public function list()
     {
 
-        $categories=Category::paginate(5); //select * from categories;
+        $categories = Category::paginate(5); //select * from categories;
         // dd($box);
 
 
-      return view('backend.pages.category.list',compact('categories'));
+        return view('backend.pages.category.list', compact('categories'));
     }
 
     public function categoryForm()
@@ -32,9 +32,7 @@ class CategoryController extends Controller
             'cat_name'=>'required',
         ]);
 
-        if($checkValidation->fails())
-        {
-           
+        if ($checkValidation->fails()) {
             // notify()->error("something went wrong.");
             notify()->error($checkValidation->getMessageBag());
             return redirect()->back();
@@ -64,8 +62,32 @@ class CategoryController extends Controller
 
         notify()->success('Category created successfully.');
 
-    return redirect()->route('category.list');
+        return redirect()->route('category.list');
     }
 
+    public function categoryEdit($id)
+    {
 
+        $category = Category::find($id);
+
+        return view('backend.pages.category.edit', compact('category'));
+    }
+
+    public function categoryUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'cat_name' => 'required',
+        ]);
+
+        // old data
+        $category = Category::find($id);
+
+        $category->update([
+            'name' => $request->cat_name,
+            'description' => $request->description,
+            'status' => $request->status
+        ]);
+        notify()->success('Category updated successfully');
+        return to_route('category.list');
+    }
 }
