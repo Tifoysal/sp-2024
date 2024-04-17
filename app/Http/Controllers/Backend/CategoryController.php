@@ -26,7 +26,6 @@ class CategoryController extends Controller
 
     public function categoryStore(Request $request)
     {
-      
        
         $checkValidation=Validator::make($request->all(),[
             'cat_name'=>'required',
@@ -39,6 +38,7 @@ class CategoryController extends Controller
         }
         //2.2: make a path for this image
         $fileName=null;
+        
         if($request->hasFile('category_image'))
         {
             //generate name i.e: 20240416170933.jpeg

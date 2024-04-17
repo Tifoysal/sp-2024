@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label for="">Upload Image</label>
-            <input name="image" type="file" class="form-control" id="" placeholder="Enter product quantity">
+            <input name="category_image" type="file" class="form-control" id="" placeholder="Enter image">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

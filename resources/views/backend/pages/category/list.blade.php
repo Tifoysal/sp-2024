@@ -21,15 +21,15 @@
         <tbody>
 
             @foreach ($categories as $data)
-                {{-- @dd($data) --}}
-
+               
                 <tr>
                     <th scope="row">{{ $data->id }}</th>
-                    <td><img style="width: 100px;height:100px" src="{{ url('uploads/category', $data->image) }}"
-                            alt="" srcset=""></td>
+                    <td>
+                       <img width="70px" src="{{url('/uploads/category/'.$data->image)}}" alt="">
+                    </td>
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->status }}</td>
-                    {{-- <td>{{ $data->description }}</td> --}}
+                   
                     <td>
                         <a class="btn btn-info" href="{{ route('category.edit', $data->id) }}">Edit</a>
                         <a class="btn btn-success" href="">View</a>
