@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/product/list', [ProductController::class, 'list'])->name('product.list');
         Route::get('/product/create/form', [ProductController::class, 'createForm'])->name('product.create.form');
+        Route::post('/product/store', [ProductController::class, 'productStore'])->name('product.store');
 
         Route::get('/category/list', [CategoryController::class, 'list'])->name('category.list');
         Route::get('/category/form', [CategoryController::class, 'categoryForm'])->name('category.form');

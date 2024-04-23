@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +17,21 @@ class ProductController extends Controller
 
     public function  createForm()
     {
-        return view('backend.pages.product.create');
+        $categories=Category::all();// it will return collection
+        return view('backend.pages.product.create',compact('categories'));
+    }
+
+
+    public function  productStore(Request $request)
+    {
+       
+        //validation
+
+        //query to store product data into product table
+        
+
+        
+
     }
 
 
