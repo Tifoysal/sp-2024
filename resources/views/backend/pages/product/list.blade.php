@@ -10,31 +10,33 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+
+  @foreach ($products as $data )
+    
+  
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$data->id}}</th>
+      <td>{{$data->name}}</td>
+      <td>{{$data->category->name}}</td>
+      <td>{{$data->price}} .BDT</td>
+      <td>{{$data->stock}}</td>
+      <td>
+        <a class="btn btn-success" href="">View</a>
+        <a  class="btn btn-info" href="">Edit</a>
+        <a  class="btn btn-danger" href="">Delete</a>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
+
   </tbody>
 </table>
 
