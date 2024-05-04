@@ -28,42 +28,18 @@
       <div class="six_box">
          <div class="container-fluid">
             <div class="row">
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx yellow_bg">
-                     <i><img src="images/shoes.png" alt="#"/></i>
-                     <span>Shoes</span>
+
+@foreach ($varCategories as $key=>$data)
+   
+<div class="col-md-2 col-sm-4 pa_left" >
+                  <div class="six_probpx @if($key%2==1) yellow_bg" @else bluedark_bg  @endif style="height: 200px;">
+                     <i><img width="20%" src="{{url('/uploads/category/'.$data->image)}}" alt="#"/></i>
+                     <span>{{$data->name}}</span>
                   </div>
                </div>
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx bluedark_bg">
-                     <i><img src="images/underwear.png" alt="#"/></i>
-                     <span>underwear</span>
-                  </div>
-               </div>
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx yellow_bg">
-                     <i><img src="images/pent.png" alt="#"/></i>
-                     <span>Pante & socks</span>
-                  </div>
-               </div>
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx bluedark_bg">
-                     <i><img src="images/t_shart.png" alt="#"/></i>
-                     <span>T-shirt & tankstop</span>
-                  </div>
-               </div>
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx yellow_bg">
-                     <i><img src="images/jakit.png" alt="#"/></i>
-                     <span>cardigans & jumpers</span>
-                  </div>
-               </div>
-               <div class="col-md-2 col-sm-4 pa_left">
-                  <div class="six_probpx bluedark_bg">
-                     <i><img src="images/helbet.png" alt="#"/></i>
-                     <span>Top & hat</span>
-                  </div>
-               </div>
+@endforeach
+            
+       
             </div>
          </div>
       </div>
@@ -80,85 +56,18 @@
             </div>
             <div class="row">
             <div class="product_main">
+
+            @foreach ($varProducts as $productData)
+               
+            <div class="project_box ">
+                     <div class="dark_white_bg" ><img  src="{{url('/uploads/category/'.$productData->image)}}" alt="#"/></div>
+                     <h3>{{$productData->name}}</h3>
+                     <p>BDT {{$productData->price}}</p>
+                  </div>
+            @endforeach
              
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/shoes1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
             
-             
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/shoes2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-            
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/tisat1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/tisat2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-            
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/mix1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/mix2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
+  
                <div class="col-md-12">
                   <a class="read_more" href="#">See More</a>
                </div>
