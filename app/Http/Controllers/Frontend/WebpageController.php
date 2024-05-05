@@ -25,6 +25,8 @@ class WebpageController extends Controller
 
     public function allProducts()
     {
-            return view('frontend.pages.products');
+        // $products=Product::where('status','active')->get();
+        $collection=Product::all();
+        return view('frontend.pages.products', compact('collection'));
     }
 }

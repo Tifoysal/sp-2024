@@ -78,7 +78,7 @@
                                     <a class="nav-link" href="about.html">About</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{route('products')}}">Products</a>
+                                    <a class="nav-link" href="{{route('products')}}">All Products</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href="fashion.html">Fashion</a>
