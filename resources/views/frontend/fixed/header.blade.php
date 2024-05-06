@@ -46,7 +46,7 @@
                   <div class="row d_flex">
                      <div class="col-md-4">
                         <ul class="conta_icon d_none1">
-                           <li><a href="#"><img src="images/email.png" alt="#"/> demo@gmail.com</a> </li>
+                           <li><a href="#"><img src="images/email.png" alt="#"/> demo@gadasfsafmail.com</a> </li>
                         </ul>
                      </div>
                      <div class="col-md-4">
@@ -54,8 +54,11 @@
                      </div>
                      <div class="col-md-4">
                         <ul class="right_icon d_none1">
-                           <li><a href="#"><img src="images/shopping.png" alt="#"/></a> </li>
-                           <a href="#" class="order">Order Now</a> 
+                           <li>
+                              <a href="#">
+                                 <img src="images/shopping.png" alt="#"/></a> 
+                              </li>
+                           <a href="{{route('registrationForm')}}" class="order">Registration</a> 
                         </ul>
                      </div>
                   </div>
