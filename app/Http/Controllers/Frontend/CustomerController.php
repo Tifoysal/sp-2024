@@ -11,7 +11,7 @@ class CustomerController extends Controller
     
     public function registrationForm()
     {
-        return view('frontend.pages.registration');
+        return view('frontend.pages.registration' );
     }
 
     public function registration(Request $request){
@@ -26,5 +26,28 @@ class CustomerController extends Controller
 
         notify()->success("Registration succesfull.");
         return redirect()->route('homepage');
+    }
+
+    public function loginForm()
+    {
+        return view('frontend.pages.login');
+    }
+
+    public function doLogin(Request $request){
+
+        
+        $userInput = ['email'=>$request->customer_email,'password'=>$request->customer_password];
+
+        // $checkLogin=Auth::attempt($userInput);
+        $checkLogin = auth()->guard('customerGuard')->attempt($userInput);
+        if ($checkLogin) {
+           
+            notify()->success('Login successful');
+            return redirect()->route('homepage');
+        }
+
+      
+        notify()->error('Invalid credentials.');
+        return redirect()->back();
     }
 }

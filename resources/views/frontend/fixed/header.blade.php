@@ -58,7 +58,21 @@
                               <a href="#">
                                  <img src="images/shopping.png" alt="#"/></a> 
                               </li>
+
+                           @auth('customerGuard')
+                           <p>
+                             
+                              {{ auth('customerGuard')->user()->name }}
+                           </p>
+                          
+                           @endauth
+
+                           @guest('customerGuard')
                            <a href="{{route('registrationForm')}}" class="order">Registration</a> 
+                           <a href="{{route('loginForm')}}" class="order">Login</a> 
+                           @endguest
+                          
+
                         </ul>
                      </div>
                   </div>

@@ -8,14 +8,11 @@
     </div>
 
     <div class="col-md-6" style="border:2px solid black; padding:10px;border-radius:15px;">
-
-        <form action="{{route('do.registration')}}" method="post">
+<h1>Customer Login </h1>
+        <form action="{{route('do.login')}}" method="post">
             @csrf
 
-            <div class="form-group">
-                <label for="exampleInputEmail1">Enter Customer Name</label>
-                <input name="customer_name" type="text" class="form-control" id=""  placeholder="Enter name">
-            </div>
+          
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>

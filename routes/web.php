@@ -30,6 +30,10 @@ Route::get('/registration',[CustomerController::class,'registrationForm'])->name
 
 Route::post('/do-registration',[CustomerController::class, 'registration'])->name('do.registration');
 
+Route::get('/loginForm',[CustomerController::class, 'loginForm'])->name('loginForm');
+
+Route::post('/do-login',[CustomerController::class, 'doLogin'])->name('do.login');
+
 
 Route::group(['prefix' => 'admin'], function () {
 
