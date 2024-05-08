@@ -35,6 +35,7 @@ Route::get('/loginForm',[CustomerController::class, 'loginForm'])->name('loginFo
 Route::post('/do-login',[CustomerController::class, 'doLogin'])->name('do.login');
 
 
+
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/login', [UserController::class, 'login'])->name('admin.login');
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/category/form', [CategoryController::class, 'categoryForm'])->name('category.form');
         Route::post('/category/store', [CategoryController::class, 'categoryStore'])->name('category.store');
         Route::get('/category/edit/{id}', [CategoryController::class, 'categoryEdit'])->name('category.edit');
+        Route::get('/category/delete/{category_id}',[CategoryController::class, 'categoryDelete'])->name('category.delete');
 
         Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('category.update');
 

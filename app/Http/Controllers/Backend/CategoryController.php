@@ -90,4 +90,17 @@ class CategoryController extends Controller
         notify()->success('Category updated successfully');
         return to_route('category.list');
     }
+
+
+    public function categoryDelete($c_id)
+    {
+
+    // Category::find($c_id)->delete();
+
+      $category=Category::find($c_id);
+      $category->delete();
+
+      notify()->success('Category deleted successfully.');
+      return redirect()->back();
+    }
 }
