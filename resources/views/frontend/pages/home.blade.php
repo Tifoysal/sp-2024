@@ -60,7 +60,8 @@
             @foreach ($varProducts as $productData)
                
             <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="{{url('/uploads/category/'.$productData->image)}}" alt="#"/></div>
+                     <div class="dark_white_bg" ><img  src="{{url('/uploads/products/'.$productData->image)}}" alt="#"/></div>
+                     <a href="{{route('add.to.cart',$productData->id)}}" class="btn btn-success">Add to Cart</a>
                      <h3>{{$productData->name}}</h3>
                      <p>BDT {{$productData->price}}</p>
                   </div>

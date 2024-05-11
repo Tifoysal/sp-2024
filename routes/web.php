@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\CustomerController;
+use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\WebpageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::post('/do-registration',[CustomerController::class, 'registration'])->nam
 Route::get('/loginForm',[CustomerController::class, 'loginForm'])->name('loginForm');
 
 Route::post('/do-login',[CustomerController::class, 'doLogin'])->name('do.login');
+
+Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');
 
 
 

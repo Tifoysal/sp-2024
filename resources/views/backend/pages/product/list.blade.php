@@ -14,6 +14,7 @@
       <th scope="col">Name</th>
       <th scope="col">Category</th>
       <th scope="col">Price</th>
+      <th scope="col">Image</th>
       <th scope="col">Stock</th>
       <th scope="col">Action</th>
     </tr>
@@ -28,6 +29,8 @@
       <td>{{$data->name}}</td>
       <td>{{$data->category->name}}</td>
       <td>{{$data->price}} .BDT</td>
+      <td>
+        <img width="100px" src="{{url('/uploads/products/'.$data->image)}}" alt=""></td>
       <td>{{$data->stock}}</td>
       <td>
         <a class="btn btn-success" href="">View</a>

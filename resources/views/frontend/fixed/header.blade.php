@@ -56,7 +56,12 @@
                         <ul class="right_icon d_none1">
                            <li>
                               <a href="#">
-                                 <img src="images/shopping.png" alt="#"/></a> 
+                                 <span style="font-family: bold;">
+                              {{ count(session()->get('cart')) }}
+                              
+                              </span>
+                                 <img src="images/shopping.png" alt="#"/></a>
+                                 
                               </li>
 
                            @auth('customerGuard')

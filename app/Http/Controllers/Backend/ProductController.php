@@ -32,11 +32,27 @@ class ProductController extends Controller
 
         // dd($request->all());
 
+
+        //2.2: make a path for this image
+        $fileName=null;
+        
+        if($request->hasFile('image'))
+        {
+            //generate name i.e: 20240416170933.jpeg
+            $fileName=date('YmdHis').'.'.$request->file('image')->getClientOriginalExtension();
+           
+             //2.3: store it into public folder
+             $request->file('image')->storeAs('/products',$fileName);
+             //public/uploads/category/20244394343.png
+
+        }
+
         //query to store product data into product table
         Product::create([
             //bam pase column name=>dan pase input field er name
             'category_id'=>$request->category_id,
             'name'=>$request->product_name,
+            'image'=>$fileName,
             'price'=>$request->price,
             'stock'=>$request->quantity,
         ]);
